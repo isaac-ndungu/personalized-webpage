@@ -20,6 +20,7 @@ userForm.addEventListener('submit', function(e) {
   e.preventDefault();
   addUser(nameInput.value, ageInput.value);
   ageVerification(ageInput.value);
+  greet(nameInput.value, ageInput.value)
 });
 
 
@@ -32,4 +33,16 @@ function ageVerification(age) {
   } else {
     alert('You can access adult content');
   }
+}
+
+// Add greeting and display age in months
+function greet(name, age) {
+  let greeting = 'Hello, welcome back';
+  let newAge = parseInt(age) * 12;
+
+  let message =  `${greeting} ${name}.
+You are ${newAge} months old`
+
+  alert(message)
+  
 }
