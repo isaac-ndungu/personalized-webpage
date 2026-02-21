@@ -21,6 +21,7 @@ userForm.addEventListener('submit', function(e) {
   addUser(nameInput.value, ageInput.value);
   ageVerification(ageInput.value);
   greet(nameInput.value, ageInput.value)
+  quote();
 });
 
 
@@ -45,4 +46,13 @@ You are ${newAge} months old`
 
   alert(message)
   
+}
+
+
+// Motivational quote
+
+function quote() {
+  for (let i = 0; i <= 5; i++){
+    alert('"Only listen to those who are already where you want to be"');
+  }
 }
