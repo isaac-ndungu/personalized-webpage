@@ -61,15 +61,15 @@ userForm.addEventListener('submit', function (e) {
 // saved users
 
 function saveUsers() {
-  userList.innerHTML = '';
+  // userList.innerHTML = '';
   
-  users.forEach(user => {
-    let div = document.createElement('div');
-    div.classList.add('userCard');
-    div.textContent = `${user.name} - ${user.age} years old.`;
+  // users.forEach(user => {
+  //   let div = document.createElement('div');
+  //   div.classList.add('userCard');
+  //   div.textContent = `${user.name} - ${user.age} years old.`;
 
-    userList.appendChild(div);
-  });
+  //   userList.appendChild(div);
+  // });
 }
 
 

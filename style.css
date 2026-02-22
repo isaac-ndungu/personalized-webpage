@@ -5,19 +5,6 @@
     font-weight: 500;
 }
 
-.success {
-    background-color: #63ad74dc;
-
-}
-
-.warning {
-    background-color: #cf757c;
-}
-
-.info {
-    background-color: #d1ecf1;
-}
-
 .userCard {
     padding: 8px;
     margin: 8px auto;
