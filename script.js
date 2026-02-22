@@ -5,6 +5,7 @@ let nameInput = document.querySelector('.nameInput');
 let ageInput = document.querySelector('.ageInput');
 let button = document.querySelector('.button');
 let messageContainer = document.querySelector('.messageContainer');
+let userList = document.querySelector('.userList');
 
 
 // Store input to localStorage
@@ -22,11 +23,42 @@ let addUser = function (name, age) {
 
 userForm.addEventListener('submit', function (e) {
   e.preventDefault();
-  addUser(nameInput.value, ageInput.value);
-  ageVerification(ageInput.value);
-  greet(nameInput.value, ageInput.value)
-  quote();
+
+  let name = nameInput.value;
+  let age = parseInt(ageInput.value)
+
+
+  addUser(name, age);
+
+  let ageResult = ageVerification(age);
+  displayMessage(ageResult.type, ageResult.text);
+
+  let greetingResult = greet(name, age);
+  displayMessage(greetingResult.type, greetingResult.text);
+
+  let quoteResult = quote();
+  displayMessage(quoteResult.type, quoteResult.text);
+
+  renderUsers();
+
+  userForm.reset();
 });
+
+// saved users
+
+function renderusers() {
+  userList.innerHtML = '';
+  
+  users.forEach(user => {
+    let div = document.createElement('div');
+    div.classList.add('userCard');
+    div.textContent = `${user.name} - ${user.age} years old.`;
+
+    userList.appendChild(div);
+  })
+}
+
+
 
 // Message
 
@@ -46,7 +78,7 @@ function ageVerification(age) {
   if (newAge < 18) {
     return { type: 'warning', text: 'You are too young for adult content' };
   } else {
-    return { type: 'success', text: 'You are too young for adult content' };
+    return { type: 'success', text: 'You can access adult content' };
   }
 };
 
