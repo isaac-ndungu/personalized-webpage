@@ -6,6 +6,7 @@ let ageInput = document.querySelector('.ageInput');
 let button = document.querySelector('.button');
 let messageContainer = document.querySelector('.messageContainer');
 let userList = document.querySelector('.userList');
+let card = document.createElement('div');
 
 
 // Store input to localStorage
@@ -21,6 +22,8 @@ let addUser = function (name, age) {
   return user;
 }
 
+// add Event on Submit
+
 userForm.addEventListener('submit', function (e) {
   e.preventDefault();
 
@@ -30,24 +33,33 @@ userForm.addEventListener('submit', function (e) {
 
   addUser(name, age);
 
+  messageContainer.innerHTML = '';
+
+// Get message  
+  card.classList.add('resultCard');
+
   let ageResult = ageVerification(age);
-  displayMessage(ageResult.type, ageResult.text);
-
   let greetingResult = greet(name, age);
-  displayMessage(greetingResult.type, greetingResult.text);
-
   let quoteResult = quote();
-  displayMessage(quoteResult.type, quoteResult.text);
 
-  renderUsers();
+  displayMessage(ageResult.type, ageResult.text, card);
+  displayMessage(greetingResult.type, greetingResult.text, card);
+
+  quoteResult.forEach(q => {
+    displayMessage('info', q, card);
+  });
+
+  messageContainer.appendChild(card);
+
+  saveUsers();
 
   userForm.reset();
 });
 
 // saved users
 
-function renderusers() {
-  userList.innerHtML = '';
+function saveUsers() {
+  userList.innerHTML = '';
   
   users.forEach(user => {
     let div = document.createElement('div');
@@ -55,19 +67,25 @@ function renderusers() {
     div.textContent = `${user.name} - ${user.age} years old.`;
 
     userList.appendChild(div);
-  })
+  });
 }
+
+saveUsers();
 
 
 
 // Message
 
-function displayMessage(type, text) {
-  let div = document.createElement('div');
-  div.classList.add('message', type);
-  div.textContent = text;
+function displayMessage(type, text, card) {
+  let p = document.createElement('p');
+  p.textContent = text;
 
-  messageContainer.appendChild(div);
+  card.appendChild(p);
+
+  // Remove message after 5s wait == 5000ms
+  setTimeout(() => {
+    p.remove();
+  }, 5000);
 
 }
 
@@ -95,7 +113,11 @@ function greet(name, age) {
 
 function quote() {
   let quoteContent = '"Only listen to those who are already where you want to be"';
+  let quotes = [];
+
   for (let i = 0; i <= 5; i++) {
-   displayMessage('info',quoteContent);
+   quotes.push(quoteContent);
   }
+
+  return quotes;
 }

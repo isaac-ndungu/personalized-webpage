@@ -1,5 +1,37 @@
 .message {
     padding: 10px;
-    margin: 10px 0;
+    margin: 8px;
     border-radius: 2px;
+    font-weight: 500;
+}
+
+.success {
+    background-color: #63ad74dc;
+
+}
+
+.warning {
+    background-color: #cf757c;
+}
+
+.info {
+    background-color: #d1ecf1;
+}
+
+.userCard {
+    padding: 8px;
+    margin: 8px auto;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 600px;
+    
+}
+
+.resultCard {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0 ,0 , 0.1);
+    background-color: #f8fafc
 }
