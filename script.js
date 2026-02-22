@@ -4,19 +4,23 @@ let userForm = document.querySelector('.userForm');
 let nameInput = document.querySelector('.nameInput');
 let ageInput = document.querySelector('.ageInput');
 let button = document.querySelector('.button');
+let messageContainer = document.querySelector('.messageContainer');
+
 
 // Store input to localStorage
 
-let users =  JSON.parse(localStorage.getItem("users")) || [];
-let addUser = function(name, age) {
-    users.push({name, age})
-    
-    localStorage.setItem('users', JSON.stringify(users));
+let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    return {name, age}
+let addUser = function (name, age) {
+  let user = { name, age };
+  users.push(user);
+
+  localStorage.setItem('users', JSON.stringify(users));
+
+  return user;
 }
 
-userForm.addEventListener('submit', function(e) {
+userForm.addEventListener('submit', function (e) {
   e.preventDefault();
   addUser(nameInput.value, ageInput.value);
   ageVerification(ageInput.value);
@@ -24,35 +28,42 @@ userForm.addEventListener('submit', function(e) {
   quote();
 });
 
+// Message
+
+function displayMessage(type, text) {
+  let div = document.createElement('div');
+  div.classList.add('message', type);
+  div.textContent = text;
+
+  messageContainer.appendChild(div);
+
+}
 
 // determine whether the user is old enough for certain content
 
 function ageVerification(age) {
   let newAge = parseInt(age);
   if (newAge < 18) {
-    alert('You are too young for adult content');
+    return { type: 'warning', text: 'You are too young for adult content' };
   } else {
-    alert('You can access adult content');
+    return { type: 'success', text: 'You are too young for adult content' };
   }
-}
+};
 
 // Add greeting and display age in months
 function greet(name, age) {
-  let greeting = 'Hello, welcome back';
   let newAge = parseInt(age) * 12;
 
-  let message =  `${greeting} ${name}.
-You are ${newAge} months old`
+  return {type: 'info', text: `Hello ${name}! You are ${newAge} months old.`};
 
-  alert(message)
-  
 }
 
 
 // Motivational quote
 
 function quote() {
-  for (let i = 0; i <= 5; i++){
-    alert('"Only listen to those who are already where you want to be"');
+  let quoteContent = '"Only listen to those who are already where you want to be"';
+  for (let i = 0; i <= 5; i++) {
+   displayMessage('info',quoteContent);
   }
 }
