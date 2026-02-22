@@ -13,6 +13,8 @@ let card = document.createElement('div');
 
 let users = JSON.parse(localStorage.getItem("users")) || [];
 
+saveUsers();
+
 let addUser = function (name, age) {
   let user = { name, age };
   users.push(user);
@@ -70,8 +72,6 @@ function saveUsers() {
   });
 }
 
-saveUsers();
-
 
 
 // Message
@@ -115,7 +115,7 @@ function quote() {
   let quoteContent = '"Only listen to those who are already where you want to be"';
   let quotes = [];
 
-  for (let i = 0; i <= 5; i++) {
+  for (let i = 0; i < 5; i++) {
    quotes.push(quoteContent);
   }
 
