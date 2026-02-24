@@ -10,26 +10,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="bg-slate-300/60">
     <main>
-        <form class="userForm flex flex-col items-center text-sm text-slate-800">
-            <h1 class="text-4xl font-bold py-4 text-center">Please enter your details below</h1>
+        <form class="userForm flex flex-col items-center text-sm text-slate-800 max-w-xl mx-auto mt-32 py-8 border-slate-300 border-1 rounded-xl shadow-2xl bg-gray-300/60 hover:scale-[101%] font-sans">
+            <h1 class="text-4xl font-bold py-4 text-center">Please Enter Your Details Below</h1>
             <div class="max-w-96 w-full px-4">
-                <label for="name" class="font-medium">Full Name</label>
+                <label for="name" class="font-semibold text-lg">Full Name</label>
                 <div
-                    class="flex items-center mt-2 mb-4 h-10 pl-3 border border-slate-300 rounded-full focus-within:ring-2 focus-within:ring-indigo-400 transition-all overflow-hidden">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M18.311 16.406a9.64 9.64 0 0 0-4.748-4.158 5.938 5.938 0 1 0-7.125 0 9.64 9.64 0 0 0-4.749 4.158.937.937 0 1 0 1.623.938c1.416-2.447 3.916-3.906 6.688-3.906 2.773 0 5.273 1.46 6.689 3.906a.938.938 0 0 0 1.622-.938M5.938 7.5a4.063 4.063 0 1 1 8.125 0 4.063 4.063 0 0 1-8.125 0"
-                            fill="#475569" />
-                    </svg>
+                    class="flex items-center mt-2 mb-4 h-12 pl-3 border border-slate-600 rounded-full focus-within:ring-2 focus-within:ring-indigo-400 transition-all overflow-hidden">
+                    <i class="fa-regular fa-user fa-lg"></i>
                     <input type="text" class="nameInput h-full px-2 w-full outline-none bg-transparent"
                         placeholder="Enter your full name" required>
                 </div>
-                <label for="email-address" class="font-medium mt-4">Age</label>
+                <label for="email-address" class="font-semibold mt-4 text-lg">Age</label>
                 <div
-                    class="flex items-center mt-2 mb-4 h-10 pl-3 border border-slate-300 rounded-full focus-within:ring-2 focus-within:ring-indigo-400 transition-all overflow-hidden">
-                    <i class="fa-regular fa-calendar"></i>
+                    class="flex items-center mt-2 mb-4 h-12 pl-3 border border-slate-600 rounded-full focus-within:ring-2 focus-within:ring-indigo-400 transition-all overflow-hidden">
+                    <i class="fa-regular fa-calendar fa-lg"></i>
                     <input type="number" class="ageInput h-full px-2 w-full outline-none bg-transparent"
                         placeholder="Enter your age" required>
                 </div>
@@ -48,7 +44,7 @@
 
         <div class="messageContainer"></div>
         
-        <h3 class="text-2xl font-bold py-4 text-center">Saved Users</h3>
+        <h3 class="text-2xl font-bold py-4 text-center mt-10">Saved Users</h3>
         <div class="userList text-center width-[300px]">
             
         </div>
